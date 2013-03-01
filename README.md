@@ -14,3 +14,9 @@ Dunecraft adds certain important elements from the world of "Dune," the classic 
 + April 15, 2013: Program logic 1st draft complete, thumper model drafted, worm refinement
 + April 22, 2013: Debugging/Gameplay Testing, thumper refinement
 + April 29, 2013: Product "Ships" 
+
+
+#### Current Team Members
++ Brendan Ferris
++ Michael Schrag
++ Raymond Finzel
