@@ -17,6 +17,8 @@ Dunecraft adds certain important elements from the world of "Dune," the classic 
 
 
 #### Current Team Members
-+ Brendan Ferris
-+ Michael Schrag
-+ Raymond Finzel
++ Brendan Ferris 
++ Michael Schrag 
++ Raymond Finzel 
++ Nathan Feldsien
++ Andrew Freeman 
