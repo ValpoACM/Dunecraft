@@ -4,14 +4,13 @@
 // Keep in mind that you still need to fill in some blanks
 // - ZeuX
 
+package mods.tutorial.generic.client;
 
+import net.minecraft.client.*;
+import net.minecraft.client.model.*;
+import net.minecraft.entity.Entity;
 
-
-
-
-package net.minecraft.src;
-
-public class ModelSandworm_Small extends ModelBase
+public class ModelSmallSandworm extends ModelBase
 {
   //fields
     ModelRenderer Head;
@@ -25,7 +24,7 @@ public class ModelSandworm_Small extends ModelBase
     ModelRenderer Body8;
     ModelRenderer Tail;
   
-  public ModelSandworm_Small()
+  public ModelSmallSandworm()
   {
     textureWidth = 256;
     textureHeight = 256;
@@ -95,7 +94,7 @@ public class ModelSandworm_Small extends ModelBase
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     Head.render(f5);
     Body1.render(f5);
     Body2.render(f5);
@@ -115,9 +114,9 @@ public class ModelSandworm_Small extends ModelBase
     model.rotateAngleZ = z;
   }
   
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
+  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
   {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5);
+    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
   }
 
 }
