@@ -1,4 +1,4 @@
-package mods.tutorial.generic;
+package mod.dunecraft;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
