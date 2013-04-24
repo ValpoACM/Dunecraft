@@ -2,30 +2,33 @@ package mod.dunecraft;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.entity.*;
-import net.minecraft.entity.monster.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntitySmallSandworm extends EntityCreature {
-
-	public EntitySmallSandworm(World par1World) {
-		super(par1World);
-		this.experienceValue = 5;
-		//this.texture = "/mob/spider.png";
+public class EntitySmallSandworm extends EntityMob
+{
+    public EntitySmallSandworm(World par1World)
+    {
+        super(par1World);
+        this.texture = "/mob/spider.png";
         this.setSize(1.4F, 0.9F);
         this.moveSpeed = 0.8F;
-	}
+    }
 
-	@Override
-	public int getMaxHealth() {
-		return 32;
-	}
-	
-	/**
+    protected void entityInit()
+    {
+        super.entityInit();
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+    }
+
+    /**
      * Called to update the entity's position/logic.
      */
     public void onUpdate()
@@ -37,8 +40,13 @@ public class EntitySmallSandworm extends EntityCreature {
             this.setBesideClimbableBlock(this.isCollidedHorizontally);
         }
     }
-	
-	/**
+
+    public int getMaxHealth()
+    {
+        return 16;
+    }
+
+    /**
      * Returns the Y offset from the entity's position for any entity riding this one.
      */
     public double getMountedYOffset()
@@ -64,7 +72,10 @@ public class EntitySmallSandworm extends EntityCreature {
             return null;
         }
     }
-	
+
+    /**
+     * Returns the sound this mob makes while it's alive.
+     */
     protected String getLivingSound()
     {
         return "mob.spider.say";
@@ -93,7 +104,7 @@ public class EntitySmallSandworm extends EntityCreature {
     {
         this.playSound("mob.spider.step", 0.15F, 1.0F);
     }
-    
+
     /**
      * Basic mob attack. Default to touch of death in EntityCreature. Overridden by each mob to define their attack.
      */
@@ -125,7 +136,7 @@ public class EntitySmallSandworm extends EntityCreature {
             }
         }
     }
-	
+
     /**
      * Returns the item ID for the item the mob drops on death.
      */
@@ -174,10 +185,10 @@ public class EntitySmallSandworm extends EntityCreature {
     /**
      * Get this Entity's EnumCreatureAttribute
      */
-//    public EnumCreatureAttribute getCreatureAttribute()
-//    {
-//        return EnumCreatureAttribute.UNDEFINED;
-//    }
+    public EnumCreatureAttribute getCreatureAttribute()
+    {
+        return EnumCreatureAttribute.ARTHROPOD;
+    }
 
     public boolean isPotionApplicable(PotionEffect par1PotionEffect)
     {
@@ -227,6 +238,4 @@ public class EntitySmallSandworm extends EntityCreature {
             entityskeleton.mountEntity(this);
         }
     }
-
-
 }

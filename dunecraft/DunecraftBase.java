@@ -31,6 +31,7 @@ public class DunecraftBase {
         @Init
         public void load(FMLInitializationEvent event) {
                 proxy.registerRenderers();
+                proxy.load();
         }
         
         @PostInit
